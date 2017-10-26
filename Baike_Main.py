@@ -25,8 +25,9 @@ class Baike_Main(object):
 
         try:
             while self.urls.has_newurl():
-                print u'正在抓取第%d条数据' %(number)
+                
                 curl = self.urls.get_url()
+                print u'正在抓取第%d条数据:%s' %(number, curl)
                 html = self.downloader.get_html(curl)
                 content, urls = self.parser.parser_html(curl, html)
                 if content == None or urls == None:

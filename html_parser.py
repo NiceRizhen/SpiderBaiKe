@@ -11,17 +11,18 @@ import re
 
 class url_parser(object):
 
-    def geturls(self, pageurl, soup):
+    def geturls(self, soup):
         newurls = set()
 
-        print 'pageurl' , pageurl
+
         links = soup.find_all('a', href = re.compile(r'/item/.*?'))
 
         for link in links:
 
             newurl = link['href']
 
-            fullurl = 'https://baike.baidu.com' + newurl
+            if 'http' not in newurl:
+                fullurl = 'https://baike.baidu.com' + newurl
 
             newurls.add(fullurl)
     
@@ -55,7 +56,7 @@ class url_parser(object):
         
         soup = BeautifulSoup(page, 'html.parser', from_encoding= 'utf-8') 
         
-        new_urls = self.geturls(pageurl, soup)
+        new_urls = self.geturls(soup)
         new_data = self.geturldata(pageurl, soup)
 
         return new_data, new_urls
