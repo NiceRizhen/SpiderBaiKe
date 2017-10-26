@@ -8,7 +8,6 @@ Created on 2017年10月25日
 
 class url_manager(object):
     
-    
     def __init__(self):
         self.newurls = set()
         self.oldurls = set()
@@ -25,7 +24,7 @@ class url_manager(object):
         
         if url not in self.newurls and url not in self.oldurls:
             self.newurls.add(url)
-           
+        
     def add_urls(self, urls):
 
         if urls is None or 0 == len(urls):
@@ -33,7 +32,6 @@ class url_manager(object):
         
         for url in urls:
             self.add_url(url)
-        
 
     def has_newurl(self):
         if (0 != len(self.newurls)):

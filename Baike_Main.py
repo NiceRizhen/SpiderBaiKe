@@ -35,7 +35,7 @@ class Baike_Main(object):
                 self.output.getdata(content)
                 number = number + 1
 
-                if number > 50:
+                if number > 1000:
                     break
         except Exception, e:
             print e.message
@@ -45,7 +45,7 @@ class Baike_Main(object):
         
 if __name__ == "__main__":
     
-    base_url = 'https://baike.baidu.com/item/%E5%B7%B4%E5%A1%9E%E7%BD%97%E9%82%A3%E8%B6%B3%E7%90%83%E4%BF%B1%E4%B9%90%E9%83%A8/2431429'
+    base_url = 'https://baike.baidu.com/item/%E5%BD%B1%E9%AD%94/10861150'.decode('utf-8').encode('utf-8')
     main = Baike_Main()
     main.run(base_url)
     

@@ -10,11 +10,11 @@ from bs4 import BeautifulSoup
 import re
 
 class url_parser(object):
-    
-    
+
     def geturls(self, pageurl, soup):
         newurls = set()
 
+        print 'pageurl' , pageurl
         links = soup.find_all('a', href = re.compile(r'/item/.*?'))
 
         for link in links:
@@ -29,8 +29,6 @@ class url_parser(object):
 
     def geturldata(self, pageurl, soup):
         
-        
-        print 'pageurl' , pageurl
         newdata = {}
         
         #获取url
